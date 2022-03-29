@@ -8,7 +8,12 @@ import 'package:flutter_event_app/widgets/ui_helper.dart';
 class UpComingEventCard extends StatelessWidget {
   final Event event;
   final VoidCallback onTap;
-  const UpComingEventCard({Key? key, required this.event, required this.onTap}) : super(key: key);
+  const UpComingEventCard({
+    Key key,
+    @required this.event,
+    @required this.onTap,
+  }) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width * 0.8;
@@ -35,7 +40,7 @@ class UpComingEventCard extends StatelessWidget {
           width: double.infinity,
           child: Hero(
             tag: event.image,
-            child: Image.network(
+            child: Image.asset(
               event.image,
               fit: BoxFit.cover,
             ),

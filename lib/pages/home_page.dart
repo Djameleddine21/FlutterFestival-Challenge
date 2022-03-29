@@ -13,7 +13,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../models/event_model.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key}) : super(key: key);
+  const MyHomePage({Key key}) : super(key: key);
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -22,10 +22,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   int _currentIndex = 0;
 
-  late ScrollController scrollController;
-  late AnimationController controller;
-  late AnimationController opacityController;
-  late Animation<double> opacity;
+  ScrollController scrollController;
+  AnimationController controller;
+  AnimationController opacityController;
+  Animation<double> opacity;
 
   void viewEventDetail(Event event) {
     Navigator.of(context).push(
@@ -45,18 +45,20 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   void initState() {
-
-
-    controller = AnimationController(vsync: this, duration: const Duration(seconds: 1))..forward();
-    opacityController = AnimationController(vsync: this, duration: const Duration(microseconds: 1));
-    opacity = Tween(begin: 1, end: 0).animate(CurvedAnimation(
+    controller = AnimationController(vsync: this, duration: const Duration(seconds: 1))
+      ..forward();
+    opacityController =
+        AnimationController(vsync: this, duration: const Duration(microseconds: 1));
+    opacity = Tween<double>(begin: 1, end: 0).animate(CurvedAnimation(
       curve: Curves.linear,
       parent: opacityController,
     ));
-    scrollController.addListener(() {
-      opacityController.value = offsetToOpacity(
-          currentOffset: scrollController.offset, maxOffset: scrollController.position.maxScrollExtent / 2);
-    });
+    scrollController = ScrollController()
+      ..addListener(() {
+        opacityController.value = offsetToOpacity(
+            currentOffset: scrollController.offset,
+            maxOffset: scrollController.position.maxScrollExtent / 2);
+      });
     super.initState();
   }
 
@@ -70,13 +72,13 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return AlertDialog(
-            title: Text("Alert Dialog"),
-          );
-        });
+    // showDialog(
+    //     context: context,
+    //     builder: (BuildContext context) {
+    //       return const AlertDialog(
+    //         title: Text("Alert Dialog"),
+    //       );
+    //     });
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -179,7 +181,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
               var animation = Tween<double>(begin: 800.0, end: 0.0).animate(
                 CurvedAnimation(
                   parent: controller,
-                  curve: Interval((1 / nearbyEvents.length) * index, 1.0, curve: Curves.decelerate),
+                  curve: Interval((1 / nearbyEvents.length) * index, 1.0,
+                      curve: Curves.decelerate),
                 ),
               );
               return AnimatedBuilder(

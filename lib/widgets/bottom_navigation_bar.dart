@@ -4,7 +4,9 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 class HomePageButtonNavigationBar extends StatelessWidget {
   final Function(int) onTap;
   final int currentIndex;
-  const HomePageButtonNavigationBar({Key? key, required this.currentIndex, required this.onTap}) : super(key: key);
+  const HomePageButtonNavigationBar(
+      {Key key, @required this.currentIndex, @required this.onTap})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
@@ -23,7 +25,7 @@ class HomePageButtonNavigationBar extends StatelessWidget {
         ),
         BottomNavigationBarItem(
           label: "Ticket",
-          icon: Icon(FontAwesomeIcons.ticketAlt),
+          icon: Icon(FontAwesomeIcons.ticket),
         ),
         BottomNavigationBarItem(
           label: "User",

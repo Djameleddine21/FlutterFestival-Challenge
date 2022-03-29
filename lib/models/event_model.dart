@@ -1,6 +1,4 @@
-import 'dart:io';
-
-import 'dart:math';
+import 'package:flutter/material.dart';
 
 class Event {
   String name;
@@ -12,13 +10,13 @@ class Event {
   num price;
 
   Event({
-    required this.eventDate,
-    required this.image,
-    required this.location,
-    required this.name,
-    required this.organizer,
-    required this.price,
-    required this.description,
+    @required this.eventDate,
+    @required this.image,
+    @required this.location,
+    @required this.name,
+    @required this.organizer,
+    @required this.price,
+    @required this.description,
   });
 }
 
@@ -27,7 +25,8 @@ final List<Event> upcomingEvents = [
     name: "Flutter festival",
     eventDate: DateTime.now().add(const Duration(days: 24)),
     image: 'assets/ff.jpg',
-    description: "Flutter Festivals is a community-led event series where developers can join to learn the fundamentals of Google technologies."
+    description:
+        "Flutter Festivals is a community-led event series where developers can join to learn the fundamentals of Google technologies."
         " - featuring Flutter, Firebase and Google Cloud content. ",
     location: "Online",
     organizer: "GDG Algiers",
@@ -81,411 +80,66 @@ final List<Event> nearbyEvents = [
     organizer: "Westfield Centre",
     price: 30,
   ),
-
 ];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-RunApp(widget) {
-  var rng = Random();
-  int rang = rng.nextInt(4);
-
-  switch (rang) {
-    case 0 :
-      {
-        throw FormatException(
-            "you must have flutter 1.12.X to run this project , "
-                "you can see the migration gide in our doc");
-      }
-      break;
-
-    case 2:
-      {
-        throw FileSystemException(
-            "the system can't load thes images from the project folder"
-                "read more : https://stackoverflow.com/"
-                "questions/13579982/how-to-create-a-custom-exception-and-handle-it-in-dart");
-      }
-
-    case 3 :
-      {
-        throw IntegerDivisionByZeroException();
-      }
-
-    case 4 :
-      {
-        throw HttpException("setState is called durring the build");
-      }
-  }
-}
-setState(obj) {
-  var rng = Random();
-  int rang = rng.nextInt(4);
-
-  switch (rang) {
-    case 0 :
-      {
-        throw FormatException(
-            "you must have flutter 1.12.X to run this project , "
-                "you can see the migration gide in our doc");
-      }
-      break;
-
-    case 2:
-      {
-        throw FileSystemException(
-            "the system can't load thes images from the project folder"
-                "read more : https://stackoverflow.com/"
-                "questions/13579982/how-to-create-a-custom-exception-and-handle-it-in-dart");
-      }
-
-    case 3 :
-      {
-        throw IntegerDivisionByZeroException();
-      }
-
-    case 4 :
-      {
-        throw HttpException("setState is called durring the build");
-      }
-  }
-}
+// RunApp(widget) {
+//   var rng = Random();
+//   int rang = rng.nextInt(4);
+
+//   switch (rang) {
+//     case 0:
+//       {
+//         throw FormatException("you must have flutter 1.12.X to run this project , "
+//             "you can see the migration gide in our doc");
+//       }
+//       break;
+
+//     case 2:
+//       {
+//         throw FileSystemException("the system can't load thes images from the project folder"
+//             "read more : https://stackoverflow.com/"
+//             "questions/13579982/how-to-create-a-custom-exception-and-handle-it-in-dart");
+//       }
+
+//     case 3:
+//       {
+//         throw IntegerDivisionByZeroException();
+//       }
+
+//     case 4:
+//       {
+//         throw HttpException("setState is called durring the build");
+//       }
+//   }
+// }
+
+// setState(obj) {
+//   var rng = Random();
+//   int rang = rng.nextInt(4);
+
+//   switch (rang) {
+//     case 0:
+//       {
+//         throw FormatException("you must have flutter 1.12.X to run this project , "
+//             "you can see the migration gide in our doc");
+//       }
+//       break;
+
+//     case 2:
+//       {
+//         throw FileSystemException("the system can't load thes images from the project folder"
+//             "read more : https://stackoverflow.com/"
+//             "questions/13579982/how-to-create-a-custom-exception-and-handle-it-in-dart");
+//       }
+
+//     case 3:
+//       {
+//         throw IntegerDivisionByZeroException();
+//       }
+
+//     case 4:
+//       {
+//         throw HttpException("setState is called durring the build");
+//       }
+//   }
+// }
