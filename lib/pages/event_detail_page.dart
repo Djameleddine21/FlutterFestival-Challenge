@@ -189,12 +189,18 @@ class _EventDetailPageState extends State<EventDetailPage> with TickerProviderSt
               color: hasTitle ? Theme.of(context).primaryColor : Colors.white,
             ),
             if (hasTitle) Text(event.name, style: titleStyle.copyWith(color: Colors.white)),
-            Card(
-              shape: const CircleBorder(),
-              elevation: 0,
-              //TODO: build this widget
-              child: Container(),
-              color: Theme.of(context).primaryColor,
+            InkWell(
+              onTap: () {
+                setState(() => isFavorite = !isFavorite);
+              },
+              child: Card(
+                shape: const CircleBorder(),
+                elevation: 0,
+                child: isFavorite
+                    ? const Icon(Icons.favorite, color: Colors.red, size: 30.0)
+                    : const Icon(Icons.favorite_border, color: Colors.white, size: 30.0),
+                color: Theme.of(context).primaryColor,
+              ),
             ),
           ],
         ),
